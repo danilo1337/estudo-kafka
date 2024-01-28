@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+   db:
+     image: mcr.microsoft.com/mssql/server:latest
+     environment:
+       ACCEPT_EULA: Y
+       SA_PASSWORD: supersecreta_Senha123
+       MSSQL_PID: Developer
+     ports:
+       - 1433:1433

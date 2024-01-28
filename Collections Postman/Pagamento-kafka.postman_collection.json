@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "c0367df5-4c07-4558-8977-a73c767672fb",
+		"name": "Pagamento-kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13318323"
+	},
+	"item": [
+		{
+			"name": "localhost:8081/mensagens/pagamentos",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const min = -5;\r",
+							"const max = 5000;\r",
+							"const diff = max - min;\r",
+							"const randomDecimal = (Math.random() * diff) + min;\r",
+							"\r",
+							"const valor = randomDecimal.toFixed(2)\r",
+							"\r",
+							"pm.environment.set('VALOR', valor);\r",
+							"\r",
+							"//------------------------------------------------------------------\r",
+							"\r",
+							"const tipoPagamento = valor % 2 == 0 ? 'PIX' : 'CARTÃO';\r",
+							"\r",
+							"pm.environment.set('TIPO_PAGAMENTO', tipoPagamento);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": \"2024-01-27\",\r\n    \"valor\": {{VALOR}},\r\n    \"tipoPagamento\": {{TIPO_PAGAMENTO}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/mensagens/pagamentos",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"mensagens",
+						"pagamentos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
