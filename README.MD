@@ -7,3 +7,4 @@ O Apache Kafka é uma plataforma de streaming distribuída que permite a ingest�
 
 [Documentação](https://kafka.apache.org/documentation/)
 
+
