@@ -45,13 +45,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/mensagens/pagamentos",
+					"raw": "localhost:8081/topics/pagamentos",
 					"host": [
 						"localhost"
 					],
 					"port": "8081",
 					"path": [
-						"mensagens",
+						"topics",
 						"pagamentos"
 					]
 				}
